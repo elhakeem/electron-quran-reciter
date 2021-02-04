@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>Quran</title>
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Scheherazade&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./index.css" />
+</head>
+<body>
+    <header>
+        <select id="surahs" class="box">
+            <option disabled selected>السور</option>
+        </select>
+        <div>
+            <input id="from-verse" type="number" min="1" placeholder="من"/>
+            <input id="to-verse" type="number" min="1" placeholder="إلي"/>
+        </div>
+        <button id="submit" class="raised-box">عرض</button>
+    </header>
+    <main id="text"></main>
+    <footer id="audio">
+        <button id="play" class="raised-box">تشغيل \ إيقاف</button>
+        <div id="audio-list"></div>
+    </footer>
+    <script src="index.js"></script>
+</body>
+</html>

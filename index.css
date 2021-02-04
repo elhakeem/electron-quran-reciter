@@ -1,0 +1,78 @@
+* {
+    color: white;
+    background: none;
+}
+*:focus {
+    outline: 1px dotted #fff;
+}
+*::placeholder {
+    color: white;
+}
+body {
+    background-color: #595959;
+    margin: 0;
+}
+.box {
+    border: 1px solid #A6A6A6;
+    border-radius: 3px;
+    background-color: #595959;
+    padding: 5px;
+}
+.raised-box {
+    border-radius: 3px;
+    background-color: #595959;
+    padding: 5px;
+}
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 40px 10px 10px;
+    background-color: #262626;
+    box-shadow: 0 0 5px #000;
+    position: fixed;
+    width: 100%;
+    box-sizing: border-box;
+}
+select {
+    background: none;
+    border: none;
+}
+header select {
+    width: 100px;
+}
+header input {
+    width: 60px;
+    border: 1px solid #A6A6A6;
+    border-radius: 3px;
+    background-color: #595959;
+    padding: 5px;
+}
+button {
+    border: none;
+    display: inline-block;
+    width: 80px;
+    cursor: pointer;
+}
+main {
+    font-family: 'Scheherazade', serif;
+    font-size: 2em;
+    text-align: justify;
+    padding: 100px 30px;
+}
+footer {
+    position: fixed;
+    bottom: 0;
+    padding: 30px;
+    box-sizing: border-box;
+    width: 100%;
+    background-color: #262626;
+    box-shadow: 0 0 5px #000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+footer p {
+    font-size: 12px;
+    color: #A6A6A6;
+}
