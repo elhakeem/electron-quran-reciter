@@ -71,7 +71,7 @@ const genereteText = () => {
     main.innerHTML = '';
     selectedVerses.forEach(verse => {
         const span = document.createElement('span');
-        span.innerHTML = `${verse.text} {${verse.number}} `;
+        span.innerHTML = `${verse.text} {${verse.number}}`;
         main.appendChild(span)
     });
 }
@@ -93,13 +93,21 @@ const getAudio = () => {
 }
 const play = () => {
     document.querySelector(`#audio-list > audio:nth-child(${playingVerse})`).play();
-    playingVerse++;
-    playing = true;
+    highlightVerse();
+    nextVerse();
 }
 const stop = () => {
     const audio = document.querySelector(`#audio-list > audio:nth-child(${playingVerse - 1})`)
     audio.pause();
     audio.currentTime = 0;
+    resetToFirstVerse();
+}
+const nextVerse = () => {
+    playingVerse++;
+    playing = true;
+}
+const resetToFirstVerse = () => {
+    removePrevVerseHighlight();
     playingVerse = 1;
     playing = false;
 }
@@ -109,13 +117,21 @@ const createAudioTag = verse => {
     audio.setAttribute('src', `http://cdn.alquran.cloud/media/audio/ayah/ar.alafasy/${verse.number}/low`);
     audio.addEventListener('ended', () => {
         if (playingVerse > selectedVerses.length) {
-            playingVerse = 1;
+            resetToFirstVerse();
         }
+        removePrevVerseHighlight();
         play();
     })
     return audio;
 }
 const highlightVerse = () => {
-    const main = document.getElementById('text');
-    
+    const verse = document.querySelector(`#text > span:nth-child(${playingVerse})`);
+    verse.classList.add("highlighted");
+    window.scrollTo(0, verse.offsetTop - 100)
+}
+const removePrevVerseHighlight = () => {
+    const prevVerse = document.querySelector(`#text > span:nth-child(${playingVerse-1})`);
+    if (prevVerse) {
+        prevVerse.classList.remove("highlighted")
+    }
 }
